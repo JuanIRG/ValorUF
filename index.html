@@ -12,8 +12,8 @@
 <body>
 
     <div class="container">
-        <input id="plan" placeholder="Nombre Plan" type="text">
-        <input id="valorUf" placeholder="Valor en UF" type="text">
+        <input id="plan" placeholder="Nombre Plan" type="text" required>
+        <input id="valorUf" placeholder="Valor en UF" type="number" min="0" max="20" required>
     </div>
 
     <div>
@@ -23,9 +23,7 @@
     <div>
         <p id="resultado"></p>
     </div>
-    <div id="uf">
 
-    </div>
 </body>
 
 </html>

@@ -1,14 +1,12 @@
 "use strict"
 
 class Cotizador {
-    constructor(nombre, valor, uf) {
+    constructor(nombre, valor) {
         this.nombrePlan = nombre;
         this.valorPlan = parseFloat(valor.replace(',', '.'));
-        this.valorUf = parseFloat(uf)
     }
-    verValorCLP() {
-        var resultado = this.valorPlan * this.valorUf;
-        return resultado;
+    verValorCLP(UF) {
+        return this.valorPlan * parseFloat(UF);
     }
 }
 
@@ -22,10 +20,9 @@ function obtenerUF() {
             var valorUF = json.UFs[0].Valor;
             valorUF = valorUF.replace('.', '');
             valorUF = valorUF.replace(',', '.');
-            valorUF = parseFloat(valorUF);
 
-            var cotizacion = new Cotizador(document.getElementById("plan").value, document.getElementById("valorUf").value, valorUF)
-            document.getElementById("resultado").innerHTML = cotizacion.verValorCLP()
+            var cotizacion = new Cotizador(document.getElementById("plan").value, document.getElementById("valorUf").value);
+            document.getElementById("resultado").innerHTML = cotizacion.verValorCLP(valorUF);
         }
     }
     xhr.open("get", url)
